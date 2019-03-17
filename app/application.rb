@@ -6,8 +6,13 @@ class Application
     req = Rack::Request.new(env)
 
     if req.path == "/items/"
-      @@items.each do |item|
-        resp.write "#{item.price}\n"
+      if @@items.include?
+        @@items.each do |item|
+          resp.write "#{item.price}\n"
+        end
+      else
+        resp.write "Item not found"
+        resp.status = 400
       end
     else
       resp.write "Route not found"
