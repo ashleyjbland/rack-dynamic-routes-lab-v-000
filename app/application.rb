@@ -4,7 +4,7 @@ class Application
     resp = Rack::Response.new
     req = Rack::Request.new(env)
 
-    if req.path == "/items"
+    if req.path.match(/items/)
       item = req.params["item"]
       if Item.all.include? item
         #Item.all.each do |i|
