@@ -6,7 +6,7 @@ class Application
 
     if req.path.match(/items/)
       item = req.path.split("/items/").last
-      if Item.all.include?(item)
+      if Item.all.name.include?(item)
         resp.write "#{item.price}"
       else
         resp.write "Item not found"
