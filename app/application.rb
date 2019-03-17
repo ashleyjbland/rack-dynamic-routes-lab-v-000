@@ -1,5 +1,4 @@
 class Application
-  @@items = []
 
   def call(env)
     resp = Rack::Response.new
@@ -7,8 +6,8 @@ class Application
 
     if req.path == "/items/"
       item = req.params["item"]
-      if @@items.include? item
-        @@items.each do |i|
+      if Item.all.include? item
+        Item.all.each do |i|
           resp.write "#{i.price}\n"
         end
       else
