@@ -6,9 +6,9 @@ class Application
     req = Rack::Request.new(env)
 
     if req.path == "/items/"
-      #Item.items.each do |item|
+      @@items.each do |item|
         resp.write "#{item}\n"
-      #end
+      end
     else
       resp.write "Route not found"
       resp.status = 404
