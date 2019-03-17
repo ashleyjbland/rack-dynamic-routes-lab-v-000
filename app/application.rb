@@ -20,8 +20,4 @@ class Application
     end
     resp.finish
   end
-
-  def self.items
-    @@items
-  end
 end
