@@ -3,7 +3,7 @@ class Application
     resp = Rack::Response.new
     req = Rack::Request.new(env)
 
-    if reg.path.match(/items/)
+    if req.path.match(/items/)
       resp.write Item.name
     else
       resp.write "Route not found"
