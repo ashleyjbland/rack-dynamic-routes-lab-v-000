@@ -7,9 +7,9 @@ class Application
     if req.path == "/items/"
       item = req.params["item"]
       if Item.all.include? item
-        Item.all.each do |i|
-          resp.write "#{i.price}\n"
-        end
+        #Item.all.each do |i|
+          resp.write "#{item.price}\n"
+        #end
       else
         resp.write "Item not found"
         resp.status = 400
